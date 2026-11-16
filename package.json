@@ -1,0 +1,70 @@
+{
+  "name": "@liuhange/dsh-patient-education",
+  "version": "0.1.0",
+  "description": "医生说完就忘？把医嘱变成患者看得懂的须知，30 秒生成。A DSH plugin that turns a decision the doctor has already made into a plain-language after-visit guide: one-sentence diagnosis, medication table, diet & activity, follow-up, and warning signs. Template-filled, no medical judgement.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "patient-education",
+    "after-visit",
+    "discharge",
+    "medication",
+    "patient",
+    "患者须知",
+    "医嘱",
+    "就诊",
+    "用药",
+    "复查"
+  ],
+  "homepage": "https://github.com/liuhange789/dsh-patient-education#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuhange789/dsh-patient-education.git"
+  },
+  "bugs": {
+    "url": "https://github.com/liuhange789/dsh-patient-education/issues"
+  },
+  "license": "MIT",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "src/core",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "prepack": "node scripts/build.mjs",
+    "test": "node scripts/build.mjs && node --test test/core.test.js test/host.test.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": ">=0.1.0-rc.7 <0.2.0",
+    "@deepseek-ai/schemastery": ">=3.18.0 <4"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    },
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-tools": "0.1.0-rc.8",
+    "@deepseek-ai/schemastery": "3.19.0",
+    "esbuild": "^0.25.0"
+  }
+}
